@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #272732;
+    border-radius: 4px;
+    border: 2px solid #09090c;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4a843;
+  }
+}
+
+@layer utilities {
+  /* Magnetic Button Feeling with smooth cubic-bezier */
+  .btn-magnetic {
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background-color 0.25s ease,
+                border-color 0.25s ease;
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+  .btn-magnetic:active {
+    transform: scale(0.98);
+  }
+
+  /* Interactive lift */
+  .hover-lift {
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                color 0.2s ease,
+                opacity 0.2s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Experience Card Hover Scale & Glow */
+  .card-prestige {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease;
+  }
+  .card-prestige:hover {
+    transform: scale(1.012) translateY(-3px);
+  }
+
+  /* Text Gold Gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #F3CA68 0%, #D4A843 50%, #B88A2E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow lights */
+  .glow-gold {
+    box-shadow: 0 0 50px rgba(212, 168, 67, 0.15);
+  }
+
+  .glow-gold-strong {
+    box-shadow: 0 0 70px rgba(212, 168, 67, 0.28);
+  }
+
+  /* Underline link animation */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1.5px;
+    bottom: -2px;
+    left: 0;
+    background-color: #D4A843;
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+/* Subtle background illumination */
+.ambient-loft-radial {
+  background: radial-gradient(circle at 50% 20%, rgba(212, 168, 67, 0.07) 0%, rgba(15, 15, 19, 0) 65%);
+}
+
+.ambient-hero-mesh {
+  background: 
+    radial-gradient(at 0% 0%, rgba(212, 168, 67, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(30, 30, 38, 0.8) 0px, transparent 60%),
+    radial-gradient(at 50% 50%, rgba(15, 15, 19, 1) 0px, transparent 100%);
+}

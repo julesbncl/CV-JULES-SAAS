@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth bg-[#0F0F13] text-[#F5F3EE] antialiased selection:bg-[#D4A843] selection:text-[#0F0F13]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jules — Développeur Full Stack & UI/UX Designer | Portfolio Nocturne Prestige</title>
+  <meta name="description" content="Portfolio et CV de Jules, Ingénieur logiciel senior et UI/UX designer." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charbon: {
+              DEFAULT: '#0F0F13',
+              deep: '#09090C',
+              light: '#16161D',
+              surface: '#1A1A22'
+            },
+            ardoise: {
+              DEFAULT: '#1E1E26',
+              light: '#272732',
+              border: '#2F2F3D',
+              hover: '#343444'
+            },
+            or: {
+              DEFAULT: '#D4A843',
+              light: '#F3CA68',
+              dark: '#A07C28',
+              glow: 'rgba(212, 168, 67, 0.15)',
+              glowStrong: 'rgba(212, 168, 67, 0.3)'
+            },
+            creme: {
+              DEFAULT: '#F5F3EE',
+              pure: '#FAF8F5',
+              muted: '#D8D5CC',
+              dark: '#1C1B19'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          borderRadius: {
+            '2rem': '2rem',
+            '2.5rem': '2.5rem',
+            '3rem': '3rem',
+            '4rem': '4rem'
+          },
+          boxShadow: {
+            'prestige': '0 20px 50px rgba(0, 0, 0, 0.45), 0 0 1px 1px rgba(212, 168, 67, 0.1)',
+            'prestige-hover': '0 25px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 168, 67, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090c; }
+    ::-webkit-scrollbar-thumb { background: #272732; border-radius: 4px; border: 2px solid #09090c; }
+    ::-webkit-scrollbar-thumb:hover { background: #d4a843; }
+
+    .btn-magnetic {
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  background-color 0.25s ease;
+    }
+    .btn-magnetic:hover { transform: scale(1.03); }
+    .btn-magnetic:active { transform: scale(0.98); }
+
+    .hover-lift {
+      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s ease;
+    }
+    .hover-lift:hover { transform: translateY(-2px); }
+
+    .card-prestige {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  border-color 0.3s ease;
+    }
+    .card-prestige:hover {
+      transform: scale(1.012) translateY(-3px);
+    }
+
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #F3CA68 0%, #D4A843 50%, #B88A2E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .link-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 1.5px;
+      bottom: -2px;
+      left: 0;
+      background-color: #D4A843;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .link-underline:hover::after {
+      width: 100%;
+    }
+
+    .ambient-hero-mesh {
+      background: 
+        radial-gradient(at 0% 0%, rgba(212, 168, 67, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(30, 30, 38, 0.8) 0px, transparent 60%),
+        radial-gradient(at 50% 50%, rgba(15, 15, 19, 1) 0px, transparent 100%);
+    }
+  </style>
+</head>
+<body class="bg-charbon text-creme overflow-x-hidden relative min-h-screen">
+  
+  <!-- SVG Noise Filter -->
+  <svg class="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.045] mix-blend-overlay" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+  </svg>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-4 md:pt-6 pointer-events-none">
+    <nav id="navbar" class="pointer-events-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full transition-all duration-500 border border-transparent bg-transparent" style="max-width: 980px; width: 100%;">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-full bg-ardoise border border-or/40 flex items-center justify-center font-serif italic text-or font-bold text-base group-hover:scale-105 transition-transform">
+          J
+        </span>
+        <span class="font-mono text-xs tracking-widest text-creme-muted group-hover:text-or transition-colors uppercase font-medium">
+          JULES.IO
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 font-sans text-sm text-creme-muted font-normal tracking-wide">
+        <a href="#about" class="hover:text-or link-underline transition-colors">À propos</a>
+        <a href="#experience" class="hover:text-or link-underline transition-colors">Expérience</a>
+        <a href="#skills" class="hover:text-or link-underline transition-colors">Compétences</a>
+        <a href="#education" class="hover:text-or link-underline transition-colors">Formation</a>
+        <a href="#contact" class="hover:text-or link-underline transition-colors">Contact</a>
+      </div>
+
+      <button id="downloadBtnNav" class="btn-magnetic flex items-center gap-2 bg-gradient-to-r from-or to-or-light text-charbon font-sans font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-lg shadow-or/20 hover:shadow-or/40 cursor-pointer">
+        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+        <span>CV PDF</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center items-center text-center px-6 pt-24 pb-16 ambient-hero-mesh overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-or/5 rounded-full blur-[140px] pointer-events-none"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      
+      <!-- Profile photo -->
+      <div id="heroPhoto" class="relative mb-8 group cursor-pointer">
+        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-tr from-or/80 via-or-light/40 to-transparent shadow-2xl shadow-or/20">
+          <div class="w-full h-full rounded-full bg-gradient-to-b from-ardoise-light to-charbon flex flex-col items-center justify-center relative overflow-hidden border border-ardoise-border">
+            <span class="font-serif italic font-bold text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-creme via-or-light to-or">
+              J
+            </span>
+            <span class="absolute bottom-2 font-mono text-[9px] text-or/80 tracking-widest uppercase">
+              ARCHITECT
+            </span>
+          </div>
+        </div>
+        <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-charbon/90 backdrop-blur-md px-3 py-1 rounded-full border border-or/30 text-[10px] font-mono text-or shadow-lg whitespace-nowrap">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 absolute"></span>
+          <span class="pl-1">DISPONIBLE</span>
+        </div>
+      </div>
+
+      <!-- Massive Name -->
+      <h1 id="heroName" class="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tightest text-creme uppercase drop-shadow-2xl">
+        Jules
+      </h1>
+
+      <!-- Professional Title -->
+      <p id="heroTitle" class="mt-3 md:mt-4 font-serif italic text-2xl sm:text-3xl md:text-4xl text-gold-gradient font-normal tracking-wide max-w-2xl">
+        Développeur Full Stack & UI/UX Designer
+      </p>
+
+      <!-- Monospace Stats -->
+      <div id="heroStats" class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xs md:text-sm text-creme-muted/90 bg-ardoise/40 backdrop-blur-md px-6 py-3 rounded-full border border-ardoise-border">
+        <span class="text-or font-semibold">8+ ANS D'EXPÉRIENCE</span>
+        <span class="text-or/40">•</span>
+        <span>45+ PROJETS LIVRÉS</span>
+        <span class="text-or/40">•</span>
+        <span>Paris & Remote</span>
+      </div>
+
+      <!-- CTAs -->
+      <div id="heroCta" class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <button id="downloadBtnHero" class="btn-magnetic flex items-center gap-2.5 bg-gradient-to-r from-or via-or-light to-or text-charbon font-sans font-bold text-sm px-8 py-4 rounded-full shadow-xl shadow-or/20 hover:shadow-or/40 cursor-pointer">
+          <i data-lucide="download" class="w-4 h-4 text-charbon"></i>
+          <span>Télécharger mon CV</span>
+        </button>
+        <a href="#contact" class="btn-magnetic flex items-center gap-2 bg-ardoise/60 hover:bg-ardoise text-creme font-sans font-medium text-sm px-8 py-4 rounded-full border border-ardoise-border hover:border-or/50 transition-all cursor-pointer">
+          <span>Me contacter</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-or"></i>
+        </a>
+      </div>
+
+      <a href="#about" class="mt-16 text-creme-muted/60 hover:text-or transition-colors animate-bounce">
+        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section id="about" class="relative py-28 md:py-36 bg-creme text-charbon rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-[3rem] md:rounded-b-[4rem] shadow-2xl z-20 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <div class="lg:col-span-5 about-item flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-widest text-or-dark font-bold">
+              01. MANIFESTE & VISION
+            </span>
+            <h2 class="mt-4 font-serif italic text-4xl sm:text-5xl md:text-6xl text-charbon leading-[1.1] font-bold">
+              L'excellence à la frontière du code et du design.
+            </h2>
+          </div>
+          <div class="mt-8 pt-8 border-t border-charbon/15 hidden lg:block">
+            <p class="font-mono text-xs text-charbon/70 leading-relaxed">
+              // APPROCHE : ZERO COMPROMIS<br />
+              // PERFORMANCE, ACCESSIBILITÉ & ÉLÉGANCE
+            </p>
+          </div>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-1 flex justify-center self-stretch">
+          <div class="w-[2px] h-full bg-gradient-to-b from-or via-or-dark to-charbon/10 rounded-full"></div>
+        </div>
+
+        <div class="lg:col-span-6 about-item flex flex-col gap-6">
+          <p class="font-sans text-xl md:text-2xl text-charbon/90 leading-relaxed font-light">
+            Ingénieur logiciel senior orienté architecture, scalabilité et expérience utilisateur premium avec une vision produit globale. Passionné par l'alliance entre rigueur technique, performance logicielle et raffinement visuel.
+          </p>
+          <p class="font-sans text-base md:text-lg text-charbon/75 leading-relaxed font-normal">
+            Depuis plus de 8 ans, j'accompagne startups ambitieuses et grands groupes dans la concrétisation de plateformes logicielles pérennes. Mon travail s'articule autour de trois piliers fondamentaux : <strong>la clarté architecturale</strong>, <strong>la fluidité de l'interaction</strong> et <strong>la robustesse industrielle</strong>.
+          </p>
+          
+          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-charbon/15">
+            <div class="p-4 rounded-2xl bg-charbon/5 border border-charbon/10">
+              <span class="font-mono text-2xl font-bold text-charbon block">99.9%</span>
+              <span class="font-sans text-xs text-charbon/60 uppercase">Uptime & Rigueur</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-charbon/5 border border-charbon/10">
+              <span class="font-mono text-2xl font-bold text-charbon block">&lt; 100ms</span>
+              <span class="font-sans text-xs text-charbon/60 uppercase">Latence Cible</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-charbon/5 border border-charbon/10 col-span-2 sm:col-span-1">
+              <span class="font-mono text-2xl font-bold text-charbon block">60 FPS</span>
+              <span class="font-sans text-xs text-charbon/60 uppercase">Fluidité UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10">
+    <div class="text-center max-w-2xl mx-auto mb-20">
+      <span class="font-mono text-xs uppercase tracking-widest text-or font-bold">
+        02. CARRIÈRE & IMPACT
+      </span>
+      <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+        Expériences & Réalisations
+      </h2>
+      <p class="mt-4 font-sans text-creme-muted text-sm md:text-base">
+        Un parcours jalonné de défis techniques majeurs, de leadership d'équipe et d'architectures livrées en production.
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute top-4 bottom-4 left-4 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-or via-or/40 to-ardoise-border"></div>
+
+      <div class="flex flex-col gap-12 md:gap-16">
+        
+        <!-- Experience 1 -->
+        <div class="exp-card-wrapper relative flex flex-col md:flex-row items-start">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-charbon border-2 border-or shadow-lg shadow-or/50 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-or animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-ardoise/90 backdrop-blur-md p-8 rounded-[2rem] border border-ardoise-border shadow-prestige hover:border-or/40 card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-or font-semibold px-3 py-1 rounded-full bg-charbon border border-or/20">
+                  2022 — PRÉSENT
+                </span>
+                <span class="font-mono text-xs text-creme-muted/70">Paris / Remote</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-creme tracking-tight">Tech Lead & Architecte</h3>
+              <p class="font-sans text-base text-or font-medium mt-1">CloudScale Systems</p>
+              <p class="font-sans text-sm text-creme-muted/90 leading-relaxed mt-4">
+                Direction technique d'une équipe de 8 ingénieurs. Conception d'architectures cloud résilientes et hautement disponibles, migration vers micro-services et refonte complète des plateformes web pour 500k+ utilisateurs actifs quotidiens.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-ardoise-border/60">
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#React</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#TypeScript</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Node.js</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Kubernetes</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="exp-card-wrapper relative flex flex-col md:flex-row items-start md:flex-row-reverse">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-charbon border-2 border-or shadow-lg shadow-or/50 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-or animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-ardoise/90 backdrop-blur-md p-8 rounded-[2rem] border border-ardoise-border shadow-prestige hover:border-or/40 card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-or font-semibold px-3 py-1 rounded-full bg-charbon border border-or/20">
+                  2020 — 2022
+                </span>
+                <span class="font-mono text-xs text-creme-muted/70">Paris</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-creme tracking-tight">Senior Fullstack Engineer</h3>
+              <p class="font-sans text-base text-or font-medium mt-1">DevCorp Innovation</p>
+              <p class="font-sans text-sm text-creme-muted/90 leading-relaxed mt-4">
+                Développement d'applications web temps réel et dashboards analytiques à forte charge. Optimisation des temps de réponse API de 45% et industrialisation des pipelines CI/CD.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-ardoise-border/60">
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#React</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Python</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Go</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#PostgreSQL</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="exp-card-wrapper relative flex flex-col md:flex-row items-start">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-charbon border-2 border-or shadow-lg shadow-or/50 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-or animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-ardoise/90 backdrop-blur-md p-8 rounded-[2rem] border border-ardoise-border shadow-prestige hover:border-or/40 card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-or font-semibold px-3 py-1 rounded-full bg-charbon border border-or/20">
+                  2018 — 2020
+                </span>
+                <span class="font-mono text-xs text-creme-muted/70">Lyon</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-creme tracking-tight">Software Developer</h3>
+              <p class="font-sans text-base text-or font-medium mt-1">StartupLab Studio</p>
+              <p class="font-sans text-sm text-creme-muted/90 leading-relaxed mt-4">
+                Création de solutions web modernes de bout en bout, implémentation des interfaces utilisateurs réactives et intégration des pipelines de données événementielles.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-ardoise-border/60">
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#Vue.js</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#JavaScript</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#REST APIs</span>
+                <span class="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border">#PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENCES -->
+  <section id="skills" class="relative py-28 md:py-36 px-6 bg-charbon-light rounded-[3rem] md:rounded-[4rem] border-y border-ardoise-border max-w-7xl mx-auto z-10 my-8 shadow-2xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="font-mono text-xs uppercase tracking-widest text-or font-bold">
+          03. STACK TECHNIQUE & MAÎTRISE
+        </span>
+        <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+          Tableau de Bord des Compétences
+        </h2>
+        <p className="mt-4 font-sans text-creme-muted text-sm md:text-base">
+          Mesures d'expertise approfondies, des architectures distribuées aux interfaces haute-fidélité.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Skill 1 -->
+        <div class="skill-card bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige flex flex-col justify-between" data-percent="96">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-charbon fill-none" stroke-width="6"></circle>
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-or fill-none" stroke-width="6" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"></circle>
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-creme">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-creme">React / Vue & Next.js</h3>
+            <p class="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+              Architectures frontend modernes, SSR/SSG, gestion d'état complexe et animations GSAP 60fps.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">React 19</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Next.js</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Vue 3</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">TypeScript</span>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige flex flex-col justify-between" data-percent="92">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or">
+                <i data-lucide="terminal" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-charbon fill-none" stroke-width="6"></circle>
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-or fill-none" stroke-width="6" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"></circle>
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-creme">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-creme">Python & Go Backend</h3>
+            <p class="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+              Micro-services haute concurrence, APIs REST & gRPC, sécurité et algorithmes distribués.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">FastAPI</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Go</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">AsyncIO</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">gRPC</span>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige flex flex-col justify-between" data-percent="94">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-charbon fill-none" stroke-width="6"></circle>
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-or fill-none" stroke-width="6" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"></circle>
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-creme">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-creme">System Design & Cloud</h3>
+            <p class="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+              Conception de systèmes résilients, haute disponibilité, architecture distribuée et scalabilité.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">AWS</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Micro-services</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Event-Driven</span>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige flex flex-col justify-between" data-percent="90">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-charbon fill-none" stroke-width="6"></circle>
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-or fill-none" stroke-width="6" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"></circle>
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-creme">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-creme">PostgreSQL & Data</h3>
+            <p class="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+              Modélisation relationnelle avancée, optimisation de requêtes SQL, Redis et bases distribuées.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">PostgreSQL</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Redis</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Index & Tuning</span>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige flex flex-col justify-between" data-percent="88">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-charbon fill-none" stroke-width="6"></circle>
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-or fill-none" stroke-width="6" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"></circle>
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-creme">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-creme">DevOps & CI/CD</h3>
+            <p class="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+              Automatisation complète, conteneurisation Docker, orchestration Kubernetes et monitoring.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Docker</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">Kubernetes</span>
+            <span class="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">GitHub Actions</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATION -->
+  <section id="education" class="relative py-28 md:py-36 px-6 max-w-5xl mx-auto z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-mono text-xs uppercase tracking-widest text-or font-bold">
+        04. DIPLÔMES & CERTIFICATIONS
+      </span>
+      <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+        Les Fondations Académiques
+      </h2>
+      <p class="mt-4 font-sans text-creme-muted text-sm md:text-base">
+        Une base théorique rigoureuse couplée à un apprentissage continu de pointe.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-6">
+      <div class="edu-item bg-ardoise/70 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/30 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-charbon border border-or/30 flex items-center justify-center text-or shrink-0 mt-1">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-or font-semibold block mb-1">PROMOTION 2018</span>
+            <h3 class="font-sans font-bold text-xl text-creme">Master en Ingénierie Logicielle & Systèmes Distribués</h3>
+            <p class="font-sans text-sm text-creme-muted mt-1">École Supérieure d'Informatique & Télécoms</p>
+            <p class="font-sans text-xs text-creme-muted/70 mt-2">Spécialisation architecture logicielle, algorithmes distribués et sécurité applicative.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-or bg-charbon px-3.5 py-1.5 rounded-full border border-or/20">
+            Mention Très Bien — Félicitations du jury
+          </span>
+        </div>
+      </div>
+
+      <div class="edu-item bg-ardoise/70 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/30 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-charbon border border-or/30 flex items-center justify-center text-or shrink-0 mt-1">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-or font-semibold block mb-1">PROMOTION 2016</span>
+            <h3 class="font-sans font-bold text-xl text-creme">Licence en Informatique & Mathématiques Appliquées</h3>
+            <p class="font-sans text-sm text-creme-muted mt-1">Faculté des Sciences et Technologies</p>
+            <p class="font-sans text-xs text-creme-muted/70 mt-2">Fondations solides en structures de données, calcul scientifique et programmation système.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-or bg-charbon px-3.5 py-1.5 rounded-full border border-or/20">
+            Mention Bien
+          </span>
+        </div>
+      </div>
+
+      <div class="edu-item bg-ardoise/70 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/30 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-charbon border border-or/30 flex items-center justify-center text-or shrink-0 mt-1">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-or font-semibold block mb-1">CERTIFICATION 2021</span>
+            <h3 class="font-sans font-bold text-xl text-creme">Certification Cloud Solutions Architect & DevOps</h3>
+            <p class="font-sans text-sm text-creme-muted mt-1">AWS & CNCF Professional Program</p>
+            <p class="font-sans text-xs text-creme-muted/70 mt-2">Architectures haute résilience, conteneurisation et sécurité des infrastructures critiques.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-or bg-charbon px-3.5 py-1.5 rounded-full border border-or/20">
+            Certifié niveau Professionnel
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10">
+    <div class="bg-gradient-to-b from-ardoise via-charbon-surface to-charbon p-8 md:p-16 rounded-[3rem] border border-or/30 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-80 h-80 bg-or/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        
+        <div class="lg:col-span-6">
+          <span class="font-mono text-xs uppercase tracking-widest text-or font-bold">
+            05. CONTACT & DISPONIBILITÉ
+          </span>
+          <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold leading-tight">
+            Travaillons ensemble sur votre prochain projet.
+          </h2>
+          <p class="mt-4 font-sans text-creme-muted text-sm md:text-base leading-relaxed">
+            Vous recherchez une expertise de premier ordre pour concevoir, structurer ou accélérer une plateforme web d'envergure ? Discutons-en dès aujourd'hui.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4">
+            <a href="mailto:contact@jules-dev.io" class="hover-lift flex items-center gap-3 text-creme hover:text-or group">
+              <div class="w-10 h-10 rounded-full bg-charbon border border-ardoise-border flex items-center justify-center text-or group-hover:border-or transition-colors">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <span class="font-mono text-sm">contact@jules-dev.io</span>
+            </a>
+
+            <a href="tel:+33612345678" class="hover-lift flex items-center gap-3 text-creme hover:text-or group">
+              <div class="w-10 h-10 rounded-full bg-charbon border border-ardoise-border flex items-center justify-center text-or group-hover:border-or transition-colors">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <span class="font-mono text-sm">+33 6 12 34 56 78</span>
+            </a>
+
+            <div class="flex items-center gap-4 mt-2">
+              <a href="https://linkedin.com" target="_blank" class="btn-magnetic flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border text-xs font-mono text-creme hover:text-or hover:border-or transition-colors">
+                <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com" target="_blank" class="btn-magnetic flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border text-xs font-mono text-creme hover:text-or hover:border-or transition-colors">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-charbon/80 p-8 rounded-[2rem] border border-ardoise-border shadow-xl">
+            <form id="contactForm" class="flex flex-col gap-4">
+              <div>
+                <label class="block font-mono text-xs text-creme-muted uppercase mb-1">Nom complet / Entreprise</label>
+                <input type="text" required placeholder="Ex: Alexandre de TechCorp" class="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none transition-colors" />
+              </div>
+              <div>
+                <label class="block font-mono text-xs text-creme-muted uppercase mb-1">Adresse Email</label>
+                <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none transition-colors" />
+              </div>
+              <div>
+                <label class="block font-mono text-xs text-creme-muted uppercase mb-1">Votre Message / Projet</label>
+                <textarea rows="3" required placeholder="Décrivez vos besoins ou votre vision technique..." class="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none resize-none transition-colors"></textarea>
+              </div>
+              <button type="submit" class="btn-magnetic mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-or via-or-light to-or text-charbon font-sans font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-or/20 hover:shadow-or/40 cursor-pointer">
+                <span>Envoyer le message</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+            <div id="formSuccess" class="hidden py-12 flex flex-col items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-or/20 border border-or flex items-center justify-center text-or mb-4 animate-bounce">
+                <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+              </div>
+              <h3 class="font-serif italic text-2xl text-creme font-bold">Message envoyé avec succès !</h3>
+              <p class="font-sans text-xs text-creme-muted mt-2 max-w-sm">Merci pour votre prise de contact. Jules vous répondra dans les plus brefs délais.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PIED DE PAGE -->
+  <footer class="relative bg-charbon-deep text-creme-muted py-14 px-6 rounded-t-[4rem] border-t border-ardoise-border z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <p class="font-sans font-bold text-creme text-sm">Jules — Développeur Full Stack & UI/UX Designer</p>
+        <p class="font-mono text-xs text-creme-muted/70 mt-1">Fait avec le vibe coding • Tous droits réservés © 2026</p>
+      </div>
+      <div class="flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-mono text-xs text-emerald-400">SYSTÈMES OPÉRATIONNELS • EN LIGNE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Navbar Morphing
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('bg-charbon/80', 'backdrop-blur-xl', 'border-or/25', 'shadow-2xl', 'shadow-black/80', 'py-3');
+        navbar.classList.remove('bg-transparent', 'border-transparent');
+      } else {
+        navbar.classList.remove('bg-charbon/80', 'backdrop-blur-xl', 'border-or/25', 'shadow-2xl', 'shadow-black/80', 'py-3');
+        navbar.classList.add('bg-transparent', 'border-transparent');
+      }
+    });
+
+    // Hero GSAP Stagger Entrance
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .fromTo('#heroPhoto', { opacity: 0, scale: 0.85, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 1.1, delay: 0.2 })
+      .fromTo('#heroName', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.0 }, "-=0.8")
+      .fromTo('#heroTitle', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, "-=0.7")
+      .fromTo('#heroStats', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+      .fromTo('#heroCta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5");
+
+    // ScrollTrigger Animations
+    gsap.utils.toArray('.about-item').forEach(item => {
+      gsap.fromTo(item, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: '#about', start: 'top 80%' }
+      });
+    });
+
+    // Experience Card Animations
+    gsap.utils.toArray('.exp-card-wrapper').forEach((card, index) => {
+      const isEven = index % 2 === 0;
+      gsap.fromTo(card, 
+        { opacity: 0, x: isEven ? -50 : 50 },
+        { 
+          opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: card, start: 'top 85%' }
+        }
+      );
+    });
+
+    // Skills Gauges & Counter
+    gsap.utils.toArray('.skill-card').forEach(card => {
+      const targetPercent = parseInt(card.getAttribute('data-percent') || '0', 10);
+      const circle = card.querySelector('.skill-circle');
+      const counter = card.querySelector('.skill-num');
+      const circumference = 2 * Math.PI * 34;
+      const offset = circumference - (targetPercent / 100) * circumference;
+
+      gsap.to(circle, {
+        strokeDashoffset: offset,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 85%' }
+      });
+
+      const countObj = { val: 0 };
+      gsap.to(countObj, {
+        val: targetPercent,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 85%' },
+        onUpdate: () => {
+          counter.textContent = `${Math.round(countObj.val)}%`;
+        }
+      });
+    });
+
+    // Education cards
+    gsap.utils.toArray('.edu-item').forEach(item => {
+      gsap.fromTo(item, { opacity: 0, y: 30 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: '#education', start: 'top 80%' }
+      });
+    });
+
+    // Download CV Handler
+    const downloadCV = (e) => {
+      e.preventDefault();
+      const content = `CV PROFESSIONNEL — JULES
+Développeur Full Stack & UI/UX Designer
+Email: contact@jules-dev.io | Tel: +33 6 12 34 56 78 | Paris & Remote
+
+PROFIL:
+Ingénieur logiciel senior orienté architecture, scalabilité et expérience utilisateur premium avec une vision produit globale.
+
+EXPÉRIENCES:
+• [2022 — PRÉSENT] Tech Lead & Architecte @ CloudScale Systems (Paris / Remote)
+  Direction technique d'une équipe de 8 ingénieurs. Architectures cloud haute résilience pour 500k+ utilisateurs.
+• [2020 — 2022] Senior Fullstack Engineer @ DevCorp Innovation (Paris)
+  Applications temps réel et pipelines CI/CD, optimisation latence API de 45%.
+• [2018 — 2020] Software Developer @ StartupLab Studio (Lyon)
+  Développement de solutions web modernes de bout en bout.
+
+COMPÉTENCES:
+• React / Vue & Next.js : 96%
+• Python & Go Backend : 92%
+• System Design & Cloud Architecture : 94%
+• PostgreSQL & Distributed DB : 90%
+• DevOps & CI/CD Pipelines : 88%
+
+FORMATIONS:
+• 2018 : Master en Ingénierie Logicielle & Systèmes Distribués (Mention Très Bien)
+• 2016 : Licence en Informatique & Mathématiques Appliquées (Mention Bien)
+• 2021 : Certification Cloud Solutions Architect & DevOps`;
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CV_Jules_Senior_FullStack.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+
+    document.getElementById('downloadBtnNav').addEventListener('click', downloadCV);
+    document.getElementById('downloadBtnHero').addEventListener('click', downloadCV);
+
+    // Contact Form submission
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.classList.add('hidden');
+      successMsg.classList.remove('hidden');
+      setTimeout(() => {
+        form.reset();
+        form.classList.remove('hidden');
+        successMsg.classList.add('hidden');
+      }, 6000);
+    });
+  </script>
+</body>
+</html>
