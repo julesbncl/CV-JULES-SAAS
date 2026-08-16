@@ -6,22 +6,30 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
+    background-color: #EBF4FC;
+    color: #0F172A;
   }
 
-  /* Custom luxury scrollbar */
+  body {
+    background-color: #EBF4FC;
+    color: #0F172A;
+    min-height: 100vh;
+  }
+
+  /* Custom luxury sky scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #09090c;
+    background: #EBF4FC;
   }
   ::-webkit-scrollbar-thumb {
-    background: #272732;
+    background: #BAE6FD;
     border-radius: 4px;
-    border: 2px solid #09090c;
+    border: 2px solid #EBF4FC;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #d4a843;
+    background: #0284C7;
   }
 }
 
@@ -60,20 +68,21 @@
     transform: scale(1.012) translateY(-3px);
   }
 
-  /* Text Gold Gradient */
+  /* Text Azure Gradient */
+  .text-azure-gradient,
   .text-gold-gradient {
-    background: linear-gradient(135deg, #F3CA68 0%, #D4A843 50%, #B88A2E 100%);
+    background: linear-gradient(135deg, #0284C7 0%, #2563EB 50%, #1D4ED8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   /* Glow lights */
-  .glow-gold {
-    box-shadow: 0 0 50px rgba(212, 168, 67, 0.15);
+  .glow-azure {
+    box-shadow: 0 0 50px rgba(2, 132, 199, 0.18);
   }
 
-  .glow-gold-strong {
-    box-shadow: 0 0 70px rgba(212, 168, 67, 0.28);
+  .glow-azure-strong {
+    box-shadow: 0 0 70px rgba(2, 132, 199, 0.32);
   }
 
   /* Underline link animation */
@@ -85,10 +94,10 @@
     content: '';
     position: absolute;
     width: 0%;
-    height: 1.5px;
+    height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #D4A843;
+    background-color: #0284C7;
     transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .link-underline:hover::after {
@@ -96,14 +105,14 @@
   }
 }
 
-/* Subtle background illumination */
-.ambient-loft-radial {
-  background: radial-gradient(circle at 50% 20%, rgba(212, 168, 67, 0.07) 0%, rgba(15, 15, 19, 0) 65%);
-}
-
+/* Subtle background illumination for Light Blue Theme */
 .ambient-hero-mesh {
   background: 
-    radial-gradient(at 0% 0%, rgba(212, 168, 67, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(30, 30, 38, 0.8) 0px, transparent 60%),
-    radial-gradient(at 50% 50%, rgba(15, 15, 19, 1) 0px, transparent 100%);
+    radial-gradient(at 10% 15%, rgba(186, 230, 253, 0.6) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(224, 242, 254, 0.8) 0px, transparent 65%),
+    radial-gradient(at 50% 50%, #EBF4FC 0px, transparent 100%);
+}
+
+.ambient-loft-radial {
+  background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.08) 0%, rgba(235, 244, 252, 0) 70%);
 }

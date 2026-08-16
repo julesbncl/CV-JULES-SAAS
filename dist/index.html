@@ -1,33 +1,994 @@
-<!doctype html>
-<html lang="fr" class="scroll-smooth bg-charbon text-creme antialiased selection:bg-or selection:text-charbon">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jules — Développeur Full Stack & UI/UX Designer | Portfolio Nocturne Prestige</title>
-    <meta name="description" content="Portfolio et CV en ligne de Jules, Développeur Full Stack Senior et UI/UX Designer. Concepteur d'architectures scalables, d'expériences web immersives et de produits digitaux d'exception." />
-    
-    <!-- Open Graph & Social -->
-    <meta property="og:title" content="Jules — Développeur Full Stack & UI/UX Designer" />
-    <meta property="og:description" content="Découvrez le portfolio interactif et le parcours professionnel de Jules." />
-    <meta property="og:type" content="website" />
-    
-    <!-- Google Fonts: Inter, Playfair Display, JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CKTE5-JX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DmtmrvAB.css">
-  </head>
-  <body class="bg-charbon text-creme overflow-x-hidden relative min-h-screen">
-    <!-- Inline SVG Noise Filter -->
-    <svg class="hidden-svg pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.045] mix-blend-overlay" xmlns="http://www.w3.org/2000/svg">
-      <filter id="noiseFilter">
-        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
-      </filter>
-      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
-    </svg>
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth bg-[#EBF4FC] text-[#0F172A] antialiased selection:bg-[#0284C7] selection:text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jules — Développeur Full Stack & UI/UX Designer | Portfolio Bleu Céleste</title>
+  <meta name="description" content="Portfolio et CV en ligne de Jules, Développeur Full Stack Senior & UI/UX Designer. Architectures scalables, expériences web immersives et design d'exception." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jules — Développeur Full Stack & UI/UX Designer" />
+  <meta property="og:description" content="Découvrez le portfolio interactif et le parcours professionnel de Jules." />
+  <meta property="og:type" content="website" />
 
-    <div id="root"></div>
-  </body>
+  <!-- Google Fonts: Inter, Playfair Display, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            skytheme: {
+              bg: '#EBF4FC',
+              subtle: '#F0F7FF',
+              surface: '#FFFFFF',
+              border: '#D1E5F8',
+              accent: '#0284C7',
+              accentLight: '#38BDF8',
+              accentDark: '#0369A1',
+              navy: '#0F172A',
+              navyMuted: '#475569',
+              pill: '#E0F2FE',
+              pillBorder: '#BAE6FD',
+              pillText: '#0369A1'
+            },
+            charbon: {
+              DEFAULT: '#0F172A',
+              deep: '#0B132B',
+              light: '#1E293B',
+              surface: '#F1F7FD'
+            },
+            ardoise: {
+              DEFAULT: '#FFFFFF',
+              light: '#F8FAFC',
+              border: '#CFE2F4',
+              hover: '#E8F2FC'
+            },
+            or: {
+              DEFAULT: '#0284C7',
+              light: '#38BDF8',
+              dark: '#0369A1',
+              glow: 'rgba(2, 132, 199, 0.15)',
+              glowStrong: 'rgba(2, 132, 199, 0.3)'
+            },
+            creme: {
+              DEFAULT: '#0F172A',
+              pure: '#0B132B',
+              muted: '#475569',
+              dark: '#EBF4FC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          borderRadius: {
+            '2rem': '2rem',
+            '2.5rem': '2.5rem',
+            '3rem': '3rem',
+            '4rem': '4rem'
+          },
+          boxShadow: {
+            'prestige': '0 20px 40px -15px rgba(2, 132, 199, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04)',
+            'prestige-hover': '0 25px 50px -12px rgba(2, 132, 199, 0.18), 0 0 20px rgba(56, 189, 248, 0.25)',
+          },
+          letterSpacing: {
+            tightest: '-0.04em',
+            tighter: '-0.025em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & GSAP + ScrollTrigger CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Custom luxury scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #EBF4FC; }
+    ::-webkit-scrollbar-thumb { background: #BAE6FD; border-radius: 4px; border: 2px solid #EBF4FC; }
+    ::-webkit-scrollbar-thumb:hover { background: #0284C7; }
+
+    /* Magnetic Button Feeling */
+    .btn-magnetic {
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  background-color 0.25s ease,
+                  border-color 0.25s ease;
+    }
+    .btn-magnetic:hover { transform: scale(1.03); }
+    .btn-magnetic:active { transform: scale(0.98); }
+
+    /* Hover Lift */
+    .hover-lift {
+      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s ease, opacity 0.2s ease;
+    }
+    .hover-lift:hover { transform: translateY(-2px); }
+
+    /* Experience & Skill Cards */
+    .card-prestige {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  border-color 0.3s ease;
+    }
+    .card-prestige:hover {
+      transform: scale(1.012) translateY(-3px);
+    }
+
+    /* Azure Text Gradient */
+    .text-azure-gradient,
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #0284C7 0%, #2563EB 50%, #1D4ED8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Link Underline Animation */
+    .link-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #0284C7;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .link-underline:hover::after {
+      width: 100%;
+    }
+
+    /* Ambient Hero Mesh Background */
+    .ambient-hero-mesh {
+      background: 
+        radial-gradient(at 10% 15%, rgba(186, 230, 253, 0.6) 0px, transparent 55%),
+        radial-gradient(at 85% 85%, rgba(224, 242, 254, 0.8) 0px, transparent 65%),
+        radial-gradient(at 50% 50%, #EBF4FC 0px, transparent 100%);
+    }
+
+    /* Noise overlay styles with fallback */
+    #noiseSvg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      opacity: 0.035;
+      mix-blend-mode: multiply;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body class="bg-[#EBF4FC] text-[#0F172A] overflow-x-hidden relative min-h-screen">
+  
+  <!-- Inline SVG Noise Texture Filter (Fixed Fullscreen Overlay) -->
+  <svg id="noiseSvg" xmlns="http://www.w3.org/2000/svg">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+  </svg>
+
+  <!-- =========================================================
+      A. NAVBAR — "La Signature Flottante"
+  ========================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-4 md:pt-6 pointer-events-none">
+    <nav id="navbar" class="pointer-events-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full transition-all duration-500 border border-sky-200/40 bg-white/40 backdrop-blur-md shadow-sm" style="max-width: 980px; width: 100%;">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-full bg-sky-100 border border-sky-300 flex items-center justify-center font-serif italic text-sky-700 font-bold text-base group-hover:scale-105 transition-transform shadow-sm">
+          J
+        </span>
+        <span class="font-mono text-xs tracking-widest text-slate-700 group-hover:text-sky-600 transition-colors uppercase font-semibold">
+          JULES.IO
+        </span>
+      </a>
+
+      <!-- Anchor Links -->
+      <div class="hidden md:flex items-center gap-8 font-sans text-sm text-slate-600 font-medium tracking-wide">
+        <a href="#about" class="hover:text-sky-600 link-underline transition-colors">À propos</a>
+        <a href="#experience" class="hover:text-sky-600 link-underline transition-colors">Expérience</a>
+        <a href="#skills" class="hover:text-sky-600 link-underline transition-colors">Compétences</a>
+        <a href="#education" class="hover:text-sky-600 link-underline transition-colors">Formation</a>
+        <a href="#contact" class="hover:text-sky-600 link-underline transition-colors">Contact</a>
+      </div>
+
+      <!-- CTA Button -->
+      <button id="downloadBtnNav" class="btn-magnetic flex items-center gap-2 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer">
+        <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
+        <span>CV PDF</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+      B. SECTION HERO — "La Première Impression" (Fond Bleu Clair)
+  ========================================================= -->
+  <section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center items-center text-center px-6 pt-28 pb-16 ambient-hero-mesh overflow-hidden">
+    
+    <!-- Ambient glowing lights -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sky-300/30 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute -top-10 right-1/4 w-[450px] h-[450px] bg-blue-300/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      
+      <!-- Profile Avatar Placeholder -->
+      <div id="heroPhoto" class="relative mb-8 group cursor-pointer">
+        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-tr from-sky-500 via-blue-500 to-sky-300 shadow-2xl shadow-sky-500/20">
+          <div class="w-full h-full rounded-full bg-gradient-to-b from-white to-sky-50 flex flex-col items-center justify-center relative overflow-hidden border border-sky-200">
+            <span class="font-serif italic font-bold text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-slate-900 via-sky-700 to-blue-700">
+              J
+            </span>
+            <span class="absolute bottom-2 font-mono text-[9px] text-sky-700 font-bold tracking-widest uppercase">
+              ARCHITECT
+            </span>
+          </div>
+        </div>
+        <!-- Status indicator -->
+        <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full border border-sky-200 text-[10px] font-mono text-sky-800 shadow-lg whitespace-nowrap">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 absolute"></span>
+          <span class="pl-1 font-semibold">DISPONIBLE</span>
+        </div>
+      </div>
+
+      <!-- Massive Name -->
+      <h1 id="heroName" class="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tightest text-slate-900 uppercase drop-shadow-sm">
+        Jules
+      </h1>
+
+      <!-- Professional Title -->
+      <p id="heroTitle" class="mt-3 md:mt-4 font-serif italic text-2xl sm:text-3xl md:text-4xl text-azure-gradient font-semibold tracking-wide max-w-2xl">
+        Développeur Full Stack & UI/UX Designer
+      </p>
+
+      <!-- Indicators -->
+      <div id="heroStats" class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xs md:text-sm text-slate-700 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full border border-sky-200 shadow-sm">
+        <span class="text-sky-700 font-bold">8+ ANS D'EXPÉRIENCE</span>
+        <span class="text-sky-300">•</span>
+        <span class="font-semibold">45+ PROJETS LIVRÉS</span>
+        <span class="text-sky-300">•</span>
+        <span>PARIS & INTERNATIONAL (REMOTE)</span>
+      </div>
+
+      <!-- CTAs -->
+      <div id="heroCta" class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <button id="downloadBtnHero" class="btn-magnetic flex items-center gap-2.5 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-bold text-sm px-8 py-4 rounded-full shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer">
+          <i data-lucide="download" class="w-4 h-4 text-white"></i>
+          <span>Télécharger mon CV</span>
+        </button>
+        <a href="#contact" class="btn-magnetic flex items-center gap-2 bg-white hover:bg-sky-50 text-slate-800 font-sans font-semibold text-sm px-8 py-4 rounded-full border border-sky-200 hover:border-sky-400 shadow-sm transition-all cursor-pointer">
+          <span>Me contacter</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-sky-600"></i>
+        </a>
+      </div>
+
+      <!-- Scroll cue -->
+      <a href="#about" class="mt-16 text-sky-600/70 hover:text-sky-700 transition-colors animate-bounce">
+        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+      C. A PROPOS — "Le Manifeste Personnel"
+  ========================================================= -->
+  <section id="about" class="relative py-28 md:py-36 bg-white text-slate-900 rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-[3rem] md:rounded-b-[4rem] shadow-xl z-20 overflow-hidden border-y border-sky-100">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-sky-200/30 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-5 about-item flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
+              01. MANIFESTE & VISION
+            </span>
+            <h2 class="mt-4 font-serif italic text-4xl sm:text-5xl md:text-6xl text-slate-900 leading-[1.1] font-bold">
+              L'excellence à la frontière du code et du design.
+            </h2>
+          </div>
+          <div class="mt-8 pt-8 border-t border-slate-200 hidden lg:block">
+            <p class="font-mono text-xs text-slate-500 leading-relaxed font-semibold">
+              // APPROCHE : ZERO COMPROMIS<br />
+              // PERFORMANCE, ACCESSIBILITÉ & ÉLÉGANCE
+            </p>
+          </div>
+        </div>
+
+        <!-- Vertical Separator -->
+        <div class="hidden lg:block lg:col-span-1 flex justify-center self-stretch">
+          <div class="w-[2px] h-full bg-gradient-to-b from-sky-400 via-blue-500 to-sky-100 rounded-full"></div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="lg:col-span-6 about-item flex flex-col gap-6">
+          <p class="font-sans text-xl md:text-2xl text-slate-800 leading-relaxed font-normal">
+            Ingénieur logiciel senior orienté architecture, scalabilité et expérience utilisateur premium avec une vision produit globale. Passionné par l'alliance entre rigueur technique, performance logicielle et raffinement visuel.
+          </p>
+          <p class="font-sans text-base md:text-lg text-slate-600 leading-relaxed font-normal">
+            Depuis plus de 8 ans, j'accompagne startups ambitieuses et grands groupes dans la concrétisation de plateformes logicielles pérennes. Mon travail s'articule autour de trois piliers fondamentaux : <strong class="text-slate-900">la clarté architecturale</strong>, <strong class="text-slate-900">la fluidité de l'interaction</strong> et <strong class="text-slate-900">la robustesse industrielle</strong>.
+          </p>
+
+          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200">
+            <div class="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70">
+              <span class="font-mono text-2xl font-bold text-sky-800 block">99.9%</span>
+              <span class="font-sans text-xs text-slate-600 uppercase font-medium">Uptime & Rigueur</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70">
+              <span class="font-mono text-2xl font-bold text-sky-800 block">&lt; 100ms</span>
+              <span class="font-sans text-xs text-slate-600 uppercase font-medium">Latence Cible</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70 col-span-2 sm:col-span-1">
+              <span class="font-mono text-2xl font-bold text-sky-800 block">60 FPS</span>
+              <span class="font-sans text-xs text-slate-600 uppercase font-medium">Fluidité UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      D. EXPERIENCE — "La Timeline Vivante"
+  ========================================================= -->
+  <section id="experience" class="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10">
+    <div class="text-center max-w-2xl mx-auto mb-20">
+      <span class="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
+        02. CARRIÈRE & IMPACT
+      </span>
+      <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
+        Expériences & Réalisations
+      </h2>
+      <p class="mt-4 font-sans text-slate-600 text-sm md:text-base">
+        Un parcours jalonné de défis techniques majeurs, de leadership d'équipe et d'architectures livrées en production.
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Center Line -->
+      <div class="absolute top-4 bottom-4 left-4 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-sky-400 via-sky-300 to-sky-200"></div>
+
+      <div class="flex flex-col gap-12 md:gap-16">
+        
+        <!-- Exp 1 -->
+        <div class="timeline-row relative flex flex-col md:flex-row items-start">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-white border-2 border-sky-500 shadow-md shadow-sky-500/40 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] border border-sky-200/80 shadow-prestige hover:border-sky-400 hover:shadow-prestige-hover card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-sky-700 font-bold px-3 py-1 rounded-full bg-sky-50 border border-sky-200">
+                  2022 — PRÉSENT
+                </span>
+                <span class="font-mono text-xs text-slate-500 font-medium">Paris / Remote</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-slate-900 tracking-tight">Tech Lead & Architecte</h3>
+              <p class="font-sans text-base text-sky-600 font-semibold mt-1">CloudScale Systems</p>
+              <p class="font-sans text-sm text-slate-600 leading-relaxed mt-4">
+                Direction technique d'une équipe de 8 ingénieurs. Conception d'architectures cloud résilientes et hautement disponibles, migration vers micro-services et refonte complète des plateformes web pour 500k+ utilisateurs actifs quotidiens.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-sky-100">
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#React</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#TypeScript</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Node.js</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Kubernetes</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="timeline-row relative flex flex-col md:flex-row items-start md:flex-row-reverse">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-white border-2 border-sky-500 shadow-md shadow-sky-500/40 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] border border-sky-200/80 shadow-prestige hover:border-sky-400 hover:shadow-prestige-hover card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-sky-700 font-bold px-3 py-1 rounded-full bg-sky-50 border border-sky-200">
+                  2020 — 2022
+                </span>
+                <span class="font-mono text-xs text-slate-500 font-medium">Paris</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-slate-900 tracking-tight">Senior Fullstack Engineer</h3>
+              <p class="font-sans text-base text-sky-600 font-semibold mt-1">DevCorp Innovation</p>
+              <p class="font-sans text-sm text-slate-600 leading-relaxed mt-4">
+                Développement d'applications web temps réel et dashboards analytiques à forte charge. Optimisation des temps de réponse API de 45% et industrialisation des pipelines CI/CD.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-sky-100">
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#React</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Python</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Go</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#PostgreSQL</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="timeline-row relative flex flex-col md:flex-row items-start">
+          <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
+            <div class="w-5 h-5 rounded-full bg-white border-2 border-sky-500 shadow-md shadow-sky-500/40 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></div>
+            </div>
+          </div>
+          <div class="hidden md:block w-1/2"></div>
+          <div class="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] border border-sky-200/80 shadow-prestige hover:border-sky-400 hover:shadow-prestige-hover card-prestige">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                <span class="font-mono text-xs text-sky-700 font-bold px-3 py-1 rounded-full bg-sky-50 border border-sky-200">
+                  2018 — 2020
+                </span>
+                <span class="font-mono text-xs text-slate-500 font-medium">Lyon</span>
+              </div>
+              <h3 class="font-sans font-bold text-2xl text-slate-900 tracking-tight">Software Developer</h3>
+              <p class="font-sans text-base text-sky-600 font-semibold mt-1">StartupLab Studio</p>
+              <p class="font-sans text-sm text-slate-600 leading-relaxed mt-4">
+                Création de solutions web modernes de bout en bout, implémentation des interfaces utilisateurs réactives et intégration des pipelines de données événementielles.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-sky-100">
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#Vue.js</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#JavaScript</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#REST APIs</span>
+                <span class="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200">#PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      E. COMPETENCES — "Le Tableau de Bord"
+  ========================================================= -->
+  <section id="skills" class="relative py-28 md:py-36 px-6 bg-gradient-to-b from-sky-100/60 to-sky-50/80 rounded-[3rem] md:rounded-[4rem] border-y border-sky-200/80 max-w-7xl mx-auto z-10 my-8 shadow-lg">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
+          03. STACK TECHNIQUE & MAÎTRISE
+        </span>
+        <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
+          Tableau de Bord des Compétences
+        </h2>
+        <p className="mt-4 font-sans text-slate-600 text-sm md:text-base">
+          Mesures d'expertise approfondies, des architectures distribuées aux interfaces haute-fidélité.
+        </p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Skill 1 -->
+        <div class="skill-card bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group" data-percent="96">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-sky-100 fill-none" stroke-width="6" />
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-sky-600 fill-none transition-all" stroke-width="6" stroke-dasharray="213.628" stroke-dashoffset="213.628" stroke-linecap="round" />
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-slate-900">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">React / Vue & Next.js</h3>
+            <p class="font-sans text-xs text-slate-600 leading-relaxed mt-3">Architectures frontend modernes, SSR/SSG, gestion d'état complexe et animations GSAP 60fps.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">React 19</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Next.js</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">TypeScript</span>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group" data-percent="92">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="terminal" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-sky-100 fill-none" stroke-width="6" />
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-sky-600 fill-none transition-all" stroke-width="6" stroke-dasharray="213.628" stroke-dashoffset="213.628" stroke-linecap="round" />
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-slate-900">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">Python & Go Backend</h3>
+            <p class="font-sans text-xs text-slate-600 leading-relaxed mt-3">Micro-services haute concurrence, APIs REST & gRPC, sécurité et algorithmes distribués.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Python (FastAPI)</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Go</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">gRPC</span>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group" data-percent="94">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-sky-100 fill-none" stroke-width="6" />
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-sky-600 fill-none transition-all" stroke-width="6" stroke-dasharray="213.628" stroke-dashoffset="213.628" stroke-linecap="round" />
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-slate-900">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">System Design & Cloud</h3>
+            <p class="font-sans text-xs text-slate-600 leading-relaxed mt-3">Conception de systèmes scalables, haute disponibilité, tolérance aux pannes et scalabilité.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">AWS</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Micro-services</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Serverless</span>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group" data-percent="90">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-sky-100 fill-none" stroke-width="6" />
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-sky-600 fill-none transition-all" stroke-width="6" stroke-dasharray="213.628" stroke-dashoffset="213.628" stroke-linecap="round" />
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-slate-900">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">PostgreSQL & Distributed DB</h3>
+            <p class="font-sans text-xs text-slate-600 leading-relaxed mt-3">Modélisation relationnelle avancée, optimisation SQL, Redis et bases distribuées.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">PostgreSQL</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Redis</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">SQL Tuning</span>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group" data-percent="88">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </div>
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" class="stroke-sky-100 fill-none" stroke-width="6" />
+                  <circle cx="40" cy="40" r="34" class="skill-circle stroke-sky-600 fill-none transition-all" stroke-width="6" stroke-dasharray="213.628" stroke-dashoffset="213.628" stroke-linecap="round" />
+                </svg>
+                <span class="skill-num absolute font-mono font-bold text-sm text-slate-900">0%</span>
+              </div>
+            </div>
+            <h3 class="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">DevOps & CI/CD Pipelines</h3>
+            <p class="font-sans text-xs text-slate-600 leading-relaxed mt-3">Automatisation de déploiement, conteneurisation Docker, Kubernetes et observabilité.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Docker</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">Kubernetes</span>
+            <span class="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">GitHub Actions</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      F. FORMATION — "Les Fondations"
+  ========================================================= -->
+  <section id="education" class="relative py-28 md:py-36 px-6 max-w-5xl mx-auto z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
+        04. DIPLÔMES & CERTIFICATIONS
+      </span>
+      <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
+        Les Fondations Académiques
+      </h2>
+      <p class="mt-4 font-sans text-slate-600 text-sm md:text-base">
+        Une base théorique rigoureuse couplée à un apprentissage continu de pointe.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-6">
+      <!-- Edu 1 -->
+      <div class="edu-item bg-white/95 p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-300 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0 mt-1 shadow-sm">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-sky-700 font-bold block mb-1">PROMOTION 2018</span>
+            <h3 class="font-sans font-bold text-xl text-slate-900">Master en Ingénierie Logicielle & Systèmes Distribués</h3>
+            <p class="font-sans text-sm text-slate-600 mt-1 font-medium">École Supérieure d'Informatique & Télécoms</p>
+            <p class="font-sans text-xs text-slate-500 mt-2">Spécialisation architecture logicielle, algorithmes distribués et sécurité applicative.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-sky-800 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 font-semibold">
+            Mention Très Bien — Félicitations du jury
+          </span>
+        </div>
+      </div>
+
+      <!-- Edu 2 -->
+      <div class="edu-item bg-white/95 p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-300 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0 mt-1 shadow-sm">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-sky-700 font-bold block mb-1">PROMOTION 2016</span>
+            <h3 class="font-sans font-bold text-xl text-slate-900">Licence en Informatique & Mathématiques Appliquées</h3>
+            <p class="font-sans text-sm text-slate-600 mt-1 font-medium">Faculté des Sciences et Technologies</p>
+            <p class="font-sans text-xs text-slate-500 mt-2">Fondations solides en structures de données, calcul scientifique et programmation système.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-sky-800 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 font-semibold">
+            Mention Bien
+          </span>
+        </div>
+      </div>
+
+      <!-- Edu 3 -->
+      <div class="edu-item bg-white/95 p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-300 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0 mt-1 shadow-sm">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-sky-700 font-bold block mb-1">CERTIFICATION 2021</span>
+            <h3 class="font-sans font-bold text-xl text-slate-900">Certification Cloud Solutions Architect & DevOps</h3>
+            <p class="font-sans text-sm text-slate-600 mt-1 font-medium">AWS & CNCF Professional Program</p>
+            <p class="font-sans text-xs text-slate-500 mt-2">Architectures haute résilience, conteneurisation et sécurité des infrastructures critiques.</p>
+          </div>
+        </div>
+        <div class="md:text-right shrink-0">
+          <span class="inline-block font-mono text-xs text-sky-800 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 font-semibold">
+            Certifié niveau Professionnel
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      G. CONTACT — "Le Pont"
+  ========================================================= -->
+  <section id="contact" class="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10">
+    <div class="bg-gradient-to-br from-white via-sky-50 to-white p-8 md:p-16 rounded-[3rem] border border-sky-200/90 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-80 h-80 bg-sky-300/30 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        
+        <!-- Info -->
+        <div class="lg:col-span-6 contact-item">
+          <span class="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
+            05. CONTACT & DISPONIBILITÉ
+          </span>
+          <h2 class="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold leading-tight">
+            Travaillons ensemble sur votre prochain projet.
+          </h2>
+          <p class="mt-4 font-sans text-slate-600 text-sm md:text-base leading-relaxed">
+            Vous recherchez une expertise de premier ordre pour concevoir, structurer ou accélérer une plateforme web d'envergure ? Discutons-en dès aujourd'hui.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4">
+            <a href="mailto:contact@jules-dev.io" class="hover-lift flex items-center gap-3 text-slate-800 hover:text-sky-600 group">
+              <div class="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:border-sky-400 group-hover:bg-sky-100 transition-colors shadow-sm">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <span class="font-mono text-sm font-semibold">contact@jules-dev.io</span>
+            </a>
+
+            <a href="tel:+33612345678" class="hover-lift flex items-center gap-3 text-slate-800 hover:text-sky-600 group">
+              <div class="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:border-sky-400 group-hover:bg-sky-100 transition-colors shadow-sm">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <span class="font-mono text-sm font-semibold">+33 6 12 34 56 78</span>
+            </a>
+
+            <div class="flex items-center gap-4 mt-2">
+              <a href="https://linkedin.com" target="_blank" class="btn-magnetic flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200 text-xs font-mono text-slate-700 hover:text-sky-600 hover:border-sky-400 shadow-sm transition-colors">
+                <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-600"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com" target="_blank" class="btn-magnetic flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200 text-xs font-mono text-slate-700 hover:text-sky-600 hover:border-sky-400 shadow-sm transition-colors">
+                <i data-lucide="github" class="w-3.5 h-3.5 text-sky-600"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:col-span-6 contact-item">
+          <div class="bg-white/90 p-8 rounded-[2rem] border border-sky-200 shadow-xl backdrop-blur-md">
+            
+            <form id="contactForm" class="flex flex-col gap-4">
+              <div>
+                <label class="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
+                  Nom complet / Entreprise
+                </label>
+                <input type="text" required placeholder="Ex: Alexandre de TechCorp" class="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors" />
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
+                  Adresse Email
+                </label>
+                <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors" />
+              </div>
+
+              <div>
+                <label class="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
+                  Votre Message / Projet
+                </label>
+                <textarea rows="3" required placeholder="Décrivez votre vision ou vos besoins techniques..." class="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none resize-none transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="btn-magnetic mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer">
+                <span>Envoyer le message</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+
+            <div id="formSuccess" class="hidden py-12 flex-col items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-sky-100 border border-sky-300 flex items-center justify-center text-sky-600 mb-4 animate-bounce">
+                <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+              </div>
+              <h3 class="font-serif italic text-2xl text-slate-900 font-bold">Message envoyé avec succès !</h3>
+              <p class="font-sans text-xs text-slate-600 mt-2 max-w-sm">Merci pour votre prise de contact. Jules vous répondra dans les plus brefs délais.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+      H. PIED DE PAGE — Sombre Profond & Élégant
+  ========================================================= -->
+  <footer class="relative bg-[#0B1528] text-sky-200 py-14 px-6 rounded-t-[4rem] border-t border-sky-900/50 z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <p class="font-sans font-bold text-white text-sm">
+          Jules — Développeur Full Stack & UI/UX Designer
+        </p>
+        <p class="font-mono text-xs text-sky-300/70 mt-1">
+          Fait avec le vibe coding • Tous droits réservés © 2026
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 bg-sky-950/80 px-4 py-2 rounded-full border border-sky-800/60">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-mono text-xs text-emerald-400 font-semibold">
+          SYSTÈMES OPÉRATIONNELS • EN LIGNE
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP Animations & Interactive Logic -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navbar Morphing on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.remove('bg-white/40', 'border-sky-200/40');
+        navbar.classList.add('bg-white/80', 'backdrop-blur-xl', 'border-sky-200/80', 'shadow-xl', 'shadow-sky-900/10', 'py-3');
+      } else {
+        navbar.classList.add('bg-white/40', 'border-sky-200/40');
+        navbar.classList.remove('bg-white/80', 'backdrop-blur-xl', 'border-sky-200/80', 'shadow-xl', 'shadow-sky-900/10', 'py-3');
+      }
+    }, { passive: true });
+
+    // Hero GSAP Stagger Entrance
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTl
+      .fromTo('#heroPhoto', { opacity: 0, scale: 0.85, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 1.1, delay: 0.2 })
+      .fromTo('#heroName', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.0 }, '-=0.8')
+      .fromTo('#heroTitle', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, '-=0.7')
+      .fromTo('#heroStats', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
+      .fromTo('#heroCta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+
+    // Section À Propos Reveal
+    gsap.utils.toArray('.about-item').forEach(item => {
+      gsap.fromTo(item, 
+        { opacity: 0, y: 50 }, 
+        {
+          opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: '#about', start: 'top 80%' }
+        }
+      );
+    });
+
+    // Timeline Experience Slide-in Cards
+    gsap.utils.toArray('.timeline-row').forEach((row, index) => {
+      const card = row.querySelector('.card-prestige');
+      const isEven = index % 2 === 0;
+      gsap.fromTo(card, 
+        { opacity: 0, x: isEven ? 60 : -60, scale: 0.95 }, 
+        {
+          opacity: 1, x: 0, scale: 1, duration: 1.1, ease: 'power3.out',
+          scrollTrigger: { trigger: row, start: 'top 85%' }
+        }
+      );
+    });
+
+    // Compétences : Jauges circulaires SVG & Compteurs animés
+    gsap.utils.toArray('.skill-card').forEach(card => {
+      const targetPercent = parseInt(card.getAttribute('data-percent') || '0', 10);
+      const circle = card.querySelector('.skill-circle');
+      const counter = card.querySelector('.skill-num');
+      const circumference = 2 * Math.PI * 34; // r = 34
+      const offset = circumference - (targetPercent / 100) * circumference;
+
+      gsap.to(circle, {
+        strokeDashoffset: offset,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 85%' }
+      });
+
+      const countObj = { val: 0 };
+      gsap.to(countObj, {
+        val: targetPercent,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 85%' },
+        onUpdate: () => {
+          counter.textContent = `${Math.round(countObj.val)}%`;
+        }
+      });
+    });
+
+    // Formation
+    gsap.utils.toArray('.edu-item').forEach(item => {
+      gsap.fromTo(item, 
+        { opacity: 0, y: 30 }, 
+        {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: '#education', start: 'top 80%' }
+        }
+      );
+    });
+
+    // Contact
+    gsap.utils.toArray('.contact-item').forEach(item => {
+      gsap.fromTo(item, 
+        { opacity: 0, y: 40 }, 
+        {
+          opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: '#contact', start: 'top 80%' }
+        }
+      );
+    });
+
+    // Téléchargement du CV (PDF / Fichier)
+    const downloadCV = (e) => {
+      e.preventDefault();
+      const content = `CV PROFESSIONNEL — JULES
+Développeur Full Stack & UI/UX Designer
+Email: contact@jules-dev.io | Tel: +33 6 12 34 56 78 | Paris & Remote
+
+========================================
+PROFIL & VISION :
+Ingénieur logiciel senior orienté architecture, scalabilité et expérience utilisateur premium avec une vision produit globale. Passionné par l'alliance entre rigueur technique, performance logicielle et raffinement visuel.
+
+========================================
+EXPÉRIENCES PROFESSIONNELLES :
+
+• [2022 — PRÉSENT] Tech Lead & Architecte @ CloudScale Systems (Paris / Remote)
+  Direction technique d'une équipe de 8 ingénieurs. Conception d'architectures cloud résilientes et hautement disponibles, migration vers micro-services et refonte complète des plateformes web pour 500k+ utilisateurs actifs quotidiens.
+  Technologies: React, TypeScript, Node.js, Kubernetes, AWS
+
+• [2020 — 2022] Senior Fullstack Engineer @ DevCorp Innovation (Paris)
+  Développement d'applications web temps réel et dashboards analytiques à forte charge. Optimisation des temps de réponse API de 45% et industrialisation des pipelines CI/CD.
+  Technologies: React, Python, Go, PostgreSQL, Docker
+
+• [2018 — 2020] Software Developer @ StartupLab Studio (Lyon)
+  Création de solutions web modernes de bout en bout, implémentation des interfaces utilisateurs réactives et intégration des pipelines de données événementielles.
+  Technologies: Vue.js, JavaScript, REST APIs, PostgreSQL
+
+========================================
+COMPÉTENCES CLÉS :
+• React / Vue & Next.js : 96%
+• Python & Go Backend : 92%
+• System Design & Cloud Architecture : 94%
+• PostgreSQL & Distributed DB : 90%
+• DevOps & CI/CD Pipelines : 88%
+
+========================================
+DIPLÔMES & CERTIFICATIONS :
+• 2018 : Master en Ingénierie Logicielle & Systèmes Distribués (Mention Très Bien — Félicitations du jury)
+• 2016 : Licence en Informatique & Mathématiques Appliquées (Mention Bien)
+• 2021 : Certification Cloud Solutions Architect & DevOps (AWS & CNCF Professional)
+`;
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CV_Jules_Senior_FullStack.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+
+    document.getElementById('downloadBtnNav').addEventListener('click', downloadCV);
+    document.getElementById('downloadBtnHero').addEventListener('click', downloadCV);
+
+    // Formulaire de contact interactif
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.classList.add('hidden');
+      formSuccess.classList.remove('hidden');
+      formSuccess.classList.add('flex');
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm.classList.remove('hidden');
+        formSuccess.classList.add('hidden');
+        formSuccess.classList.remove('flex');
+      }, 6000);
+    });
+  </script>
+</body>
 </html>

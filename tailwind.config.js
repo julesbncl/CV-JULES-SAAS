@@ -2,35 +2,56 @@
 export default {
   content: [
     "./index.html",
+    "./cv-preview.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
+        skytheme: {
+          bg: '#EBF4FC',
+          subtle: '#F0F7FF',
+          surface: '#FFFFFF',
+          card: '#FFFFFF',
+          cardHover: '#F8FAFC',
+          border: '#D1E5F8',
+          borderSubtle: '#E2EDF8',
+          accent: '#0284C7',
+          accentLight: '#38BDF8',
+          accentDark: '#0369A1',
+          accentGlow: 'rgba(2, 132, 199, 0.18)',
+          navy: '#0F172A',
+          navyMuted: '#475569',
+          navyLight: '#64748B',
+          pill: '#E0F2FE',
+          pillBorder: '#BAE6FD',
+          pillText: '#0369A1'
+        },
+        // Backward compatibility tokens mapped to the light blue aesthetic
         charbon: {
-          DEFAULT: '#0F0F13',
-          deep: '#09090C',
-          light: '#16161D',
-          surface: '#1A1A22'
+          DEFAULT: '#0F172A',
+          deep: '#0B132B',
+          light: '#1E293B',
+          surface: '#F1F7FD'
         },
         ardoise: {
-          DEFAULT: '#1E1E26',
-          light: '#272732',
-          border: '#2F2F3D',
-          hover: '#343444'
+          DEFAULT: '#FFFFFF',
+          light: '#F8FAFC',
+          border: '#CFE2F4',
+          hover: '#E8F2FC'
         },
         or: {
-          DEFAULT: '#D4A843',
-          light: '#F3CA68',
-          dark: '#A07C28',
-          glow: 'rgba(212, 168, 67, 0.15)',
-          glowStrong: 'rgba(212, 168, 67, 0.3)'
+          DEFAULT: '#0284C7',
+          light: '#38BDF8',
+          dark: '#0369A1',
+          glow: 'rgba(2, 132, 199, 0.15)',
+          glowStrong: 'rgba(2, 132, 199, 0.3)'
         },
         creme: {
-          DEFAULT: '#F5F3EE',
-          pure: '#FAF8F5',
-          muted: '#D8D5CC',
-          dark: '#1C1B19'
+          DEFAULT: '#0F172A',
+          pure: '#0B132B',
+          muted: '#475569',
+          dark: '#EBF4FC'
         }
       },
       fontFamily: {
@@ -45,10 +66,10 @@ export default {
         '4rem': '4rem'
       },
       boxShadow: {
-        'prestige': '0 20px 50px rgba(0, 0, 0, 0.45), 0 0 1px 1px rgba(212, 168, 67, 0.1)',
-        'prestige-hover': '0 25px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 168, 67, 0.25)',
-        'gold-subtle': '0 0 30px rgba(212, 168, 67, 0.12)',
-        'inner-gold': 'inset 0 1px 1px rgba(243, 202, 104, 0.2)'
+        'prestige': '0 20px 40px -15px rgba(2, 132, 199, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04)',
+        'prestige-hover': '0 25px 50px -12px rgba(2, 132, 199, 0.18), 0 0 20px rgba(56, 189, 248, 0.25)',
+        'azure-subtle': '0 0 30px rgba(2, 132, 199, 0.12)',
+        'inner-azure': 'inset 0 1px 2px rgba(56, 189, 248, 0.2)'
       },
       letterSpacing: {
         tightest: '-0.04em',

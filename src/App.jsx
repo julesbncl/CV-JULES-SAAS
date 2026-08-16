@@ -150,7 +150,7 @@ export default function App() {
   // Navbar morphing on scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 60) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -339,7 +339,7 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
   };
 
   return (
-    <div ref={mainRef} className="relative min-h-screen bg-charbon text-creme overflow-hidden selection:bg-or selection:text-charbon">
+    <div ref={mainRef} className="relative min-h-screen bg-[#EBF4FC] text-slate-900 overflow-hidden selection:bg-sky-500 selection:text-white">
       
       {/* =========================================================
           A. NAVBAR — "La Signature Flottante"
@@ -348,34 +348,34 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
         <nav 
           className={`pointer-events-auto flex items-center justify-between gap-6 px-6 py-3.5 rounded-full transition-all duration-500 border ${
             scrolled 
-              ? 'bg-charbon/80 backdrop-blur-xl border-or/25 shadow-2xl shadow-black/80 py-3' 
-              : 'bg-transparent border-transparent'
+              ? 'bg-white/80 backdrop-blur-xl border-sky-200/80 shadow-xl shadow-sky-900/10 py-3' 
+              : 'bg-white/40 backdrop-blur-md border-sky-200/40'
           }`}
           style={{ maxWidth: '980px', width: '100%' }}
         >
           {/* Brand Initials / Logo */}
           <a href="#hero" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-full bg-ardoise border border-or/40 flex items-center justify-center font-serif italic text-or font-bold text-base group-hover:scale-105 transition-transform">
+            <span className="w-8 h-8 rounded-full bg-sky-100 border border-sky-300 flex items-center justify-center font-serif italic text-sky-700 font-bold text-base group-hover:scale-105 transition-transform shadow-sm">
               J
             </span>
-            <span className="font-mono text-xs tracking-widest text-creme-muted group-hover:text-or transition-colors uppercase font-medium">
+            <span className="font-mono text-xs tracking-widest text-slate-700 group-hover:text-sky-600 transition-colors uppercase font-semibold">
               JULES.IO
             </span>
           </a>
 
           {/* Navigation Anchors */}
-          <div className="hidden md:flex items-center gap-8 font-sans text-sm text-creme-muted font-normal tracking-wide">
-            <a href="#about" className="hover:text-or link-underline transition-colors">À propos</a>
-            <a href="#experience" className="hover:text-or link-underline transition-colors">Expérience</a>
-            <a href="#skills" className="hover:text-or link-underline transition-colors">Compétences</a>
-            <a href="#education" className="hover:text-or link-underline transition-colors">Formation</a>
-            <a href="#contact" className="hover:text-or link-underline transition-colors">Contact</a>
+          <div className="hidden md:flex items-center gap-8 font-sans text-sm text-slate-600 font-medium tracking-wide">
+            <a href="#about" className="hover:text-sky-600 link-underline transition-colors">À propos</a>
+            <a href="#experience" className="hover:text-sky-600 link-underline transition-colors">Expérience</a>
+            <a href="#skills" className="hover:text-sky-600 link-underline transition-colors">Compétences</a>
+            <a href="#education" className="hover:text-sky-600 link-underline transition-colors">Formation</a>
+            <a href="#contact" className="hover:text-sky-600 link-underline transition-colors">Contact</a>
           </div>
 
           {/* CTA Button */}
           <button 
             onClick={handleDownloadCV}
-            className="btn-magnetic flex items-center gap-2 bg-gradient-to-r from-or to-or-light text-charbon font-sans font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-lg shadow-or/20 hover:shadow-or/40 cursor-pointer"
+            className="btn-magnetic flex items-center gap-2 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-semibold text-xs md:text-sm px-5 py-2 rounded-full shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>CV PDF</span>
@@ -384,43 +384,44 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
       </header>
 
       {/* =========================================================
-          B. SECTION HERO — "La Première Impression"
+          B. SECTION HERO — "La Première Impression" (Fond Bleu Clair)
       ========================================================= */}
       <section 
         id="hero" 
         ref={heroRef}
-        className="relative min-h-[100dvh] flex flex-col justify-center items-center text-center px-6 pt-24 pb-16 ambient-hero-mesh overflow-hidden"
+        className="relative min-h-[100dvh] flex flex-col justify-center items-center text-center px-6 pt-28 pb-16 ambient-hero-mesh overflow-hidden"
       >
         {/* Background ambient light */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-or/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sky-300/30 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute -top-10 right-1/4 w-[450px] h-[450px] bg-blue-300/20 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           
-          {/* Profile Photo Placeholder with luxury border */}
+          {/* Profile Photo Placeholder with luxury azure border */}
           <div ref={photoRef} className="relative mb-8 group cursor-pointer">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-tr from-or/80 via-or-light/40 to-transparent shadow-2xl shadow-or/20">
-              <div className="w-full h-full rounded-full bg-gradient-to-b from-ardoise-light to-charbon flex flex-col items-center justify-center relative overflow-hidden border border-ardoise-border">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-tr from-sky-500 via-blue-500 to-sky-300 shadow-2xl shadow-sky-500/20">
+              <div className="w-full h-full rounded-full bg-gradient-to-b from-white to-sky-50 flex flex-col items-center justify-center relative overflow-hidden border border-sky-200">
                 {/* Visual Initials Avatar */}
-                <span className="font-serif italic font-bold text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-creme via-or-light to-or">
+                <span className="font-serif italic font-bold text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-slate-900 via-sky-700 to-blue-700">
                   J
                 </span>
-                <span className="absolute bottom-2 font-mono text-[9px] text-or/80 tracking-widest uppercase">
+                <span className="absolute bottom-2 font-mono text-[9px] text-sky-700 font-bold tracking-widest uppercase">
                   ARCHITECT
                 </span>
               </div>
             </div>
             {/* Live pulsating badge */}
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-charbon/90 backdrop-blur-md px-3 py-1 rounded-full border border-or/30 text-[10px] font-mono text-or shadow-lg whitespace-nowrap">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full border border-sky-200 text-[10px] font-mono text-sky-800 shadow-lg whitespace-nowrap">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
               <span className="w-2 h-2 rounded-full bg-emerald-500 absolute" />
-              <span className="pl-1">DISPONIBLE</span>
+              <span className="pl-1 font-semibold">DISPONIBLE</span>
             </div>
           </div>
 
           {/* Massive Name */}
           <h1 
             ref={nameRef} 
-            className="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tightest text-creme uppercase drop-shadow-2xl"
+            className="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tightest text-slate-900 uppercase drop-shadow-sm"
           >
             {PROFILE.name}
           </h1>
@@ -428,7 +429,7 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
           {/* Professional Title in Italic Playfair Display */}
           <p 
             ref={titleRef} 
-            className="mt-3 md:mt-4 font-serif italic text-2xl sm:text-3xl md:text-4xl text-gold-gradient font-normal tracking-wide max-w-2xl"
+            className="mt-3 md:mt-4 font-serif italic text-2xl sm:text-3xl md:text-4xl text-azure-gradient font-semibold tracking-wide max-w-2xl"
           >
             {PROFILE.title}
           </p>
@@ -436,12 +437,12 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
           {/* Monospace 3 Indicators */}
           <div 
             ref={statsRef} 
-            className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xs md:text-sm text-creme-muted/90 bg-ardoise/40 backdrop-blur-md px-6 py-3 rounded-full border border-ardoise-border"
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xs md:text-sm text-slate-700 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full border border-sky-200 shadow-sm"
           >
-            <span className="text-or font-semibold">{PROFILE.experienceYears} ANS D'EXPÉRIENCE</span>
-            <span className="text-or/40">•</span>
-            <span>{PROFILE.projectsCount} PROJETS LIVRÉS</span>
-            <span className="text-or/40">•</span>
+            <span className="text-sky-700 font-bold">{PROFILE.experienceYears} ANS D'EXPÉRIENCE</span>
+            <span className="text-sky-300">•</span>
+            <span className="font-semibold">{PROFILE.projectsCount} PROJETS LIVRÉS</span>
+            <span className="text-sky-300">•</span>
             <span>{PROFILE.city}</span>
           </div>
 
@@ -452,22 +453,22 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
           >
             <button 
               onClick={handleDownloadCV}
-              className="btn-magnetic flex items-center gap-2.5 bg-gradient-to-r from-or via-or-light to-or text-charbon font-sans font-bold text-sm px-8 py-4 rounded-full shadow-xl shadow-or/20 hover:shadow-or/40 cursor-pointer"
+              className="btn-magnetic flex items-center gap-2.5 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-bold text-sm px-8 py-4 rounded-full shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer"
             >
-              <Download className="w-4 h-4 text-charbon" />
+              <Download className="w-4 h-4 text-white" />
               <span>Télécharger mon CV</span>
             </button>
             <a 
               href="#contact"
-              className="btn-magnetic flex items-center gap-2 bg-ardoise/60 hover:bg-ardoise text-creme font-sans font-medium text-sm px-8 py-4 rounded-full border border-ardoise-border hover:border-or/50 transition-all cursor-pointer"
+              className="btn-magnetic flex items-center gap-2 bg-white hover:bg-sky-50 text-slate-800 font-sans font-semibold text-sm px-8 py-4 rounded-full border border-sky-200 hover:border-sky-400 shadow-sm transition-all cursor-pointer"
             >
               <span>Me contacter</span>
-              <ArrowUpRight className="w-4 h-4 text-or" />
+              <ArrowUpRight className="w-4 h-4 text-sky-600" />
             </a>
           </div>
 
           {/* Scroll Down Indicator */}
-          <a href="#about" className="mt-16 text-creme-muted/60 hover:text-or transition-colors animate-bounce">
+          <a href="#about" className="mt-16 text-sky-600/70 hover:text-sky-700 transition-colors animate-bounce">
             <ChevronDown className="w-6 h-6" />
           </a>
 
@@ -475,15 +476,15 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
       </section>
 
       {/* =========================================================
-          C. A PROPOS — "Le Manifeste Personnel" (Fond Clair Noble)
+          C. A PROPOS — "Le Manifeste Personnel"
       ========================================================= */}
       <section 
         id="about" 
         ref={aboutRef}
-        className="relative py-28 md:py-36 bg-creme text-charbon rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-[3rem] md:rounded-b-[4rem] shadow-2xl z-20 overflow-hidden"
+        className="relative py-28 md:py-36 bg-white text-slate-900 rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-[3rem] md:rounded-b-[4rem] shadow-xl z-20 overflow-hidden border-y border-sky-100"
       >
-        {/* Subtle texture in about */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-or/10 rounded-full blur-[100px] pointer-events-none" />
+        {/* Subtle light sky aura in about */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           
@@ -492,15 +493,15 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
             {/* Left Column: Dramatic Title */}
             <div className="lg:col-span-5 about-reveal flex flex-col justify-between">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-or-dark font-bold">
+                <span className="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
                   01. MANIFESTE & VISION
                 </span>
-                <h2 className="mt-4 font-serif italic text-4xl sm:text-5xl md:text-6xl text-charbon leading-[1.1] font-bold">
+                <h2 className="mt-4 font-serif italic text-4xl sm:text-5xl md:text-6xl text-slate-900 leading-[1.1] font-bold">
                   L'excellence à la frontière du code et du design.
                 </h2>
               </div>
-              <div className="mt-8 pt-8 border-t border-charbon/15 hidden lg:block">
-                <p className="font-mono text-xs text-charbon/70 leading-relaxed">
+              <div className="mt-8 pt-8 border-t border-slate-200 hidden lg:block">
+                <p className="font-mono text-xs text-slate-500 leading-relaxed font-semibold">
                   // APPROCHE : ZERO COMPROMIS<br />
                   // PERFORMANCE, ACCESSIBILITÉ & ÉLÉGANCE
                 </p>
@@ -509,31 +510,31 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
 
             {/* Vertical Accent Line (Desktop) */}
             <div className="hidden lg:block lg:col-span-1 flex justify-center self-stretch">
-              <div className="w-[2px] h-full bg-gradient-to-b from-or via-or-dark to-charbon/10 rounded-full" />
+              <div className="w-[2px] h-full bg-gradient-to-b from-sky-400 via-blue-500 to-sky-100 rounded-full" />
             </div>
 
             {/* Right Column: Bio & Core Philosophy */}
             <div className="lg:col-span-6 about-reveal flex flex-col gap-6">
-              <p className="font-sans text-xl md:text-2xl text-charbon/90 leading-relaxed font-light">
+              <p className="font-sans text-xl md:text-2xl text-slate-800 leading-relaxed font-normal">
                 {PROFILE.bio}
               </p>
-              <p className="font-sans text-base md:text-lg text-charbon/75 leading-relaxed font-normal">
-                Depuis plus de 8 ans, j'accompagne startups ambitieuses et grands groupes dans la concrétisation de plateformes logicielles pérennes. Mon travail s'articule autour de trois piliers fondamentaux : <strong>la clarté architecturale</strong>, <strong>la fluidité de l'interaction</strong> et <strong>la robustesse industrielle</strong>.
+              <p className="font-sans text-base md:text-lg text-slate-600 leading-relaxed font-normal">
+                Depuis plus de 8 ans, j'accompagne startups ambitieuses et grands groupes dans la concrétisation de plateformes logicielles pérennes. Mon travail s'articule autour de trois piliers fondamentaux : <strong className="text-slate-900">la clarté architecturale</strong>, <strong className="text-slate-900">la fluidité de l'interaction</strong> et <strong className="text-slate-900">la robustesse industrielle</strong>.
               </p>
               
               {/* Highlight metrics */}
-              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-charbon/15">
-                <div className="p-4 rounded-2xl bg-charbon/5 border border-charbon/10">
-                  <span className="font-mono text-2xl font-bold text-charbon block">99.9%</span>
-                  <span className="font-sans text-xs text-charbon/60 uppercase">Uptime & Rigueur</span>
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200">
+                <div className="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70">
+                  <span className="font-mono text-2xl font-bold text-sky-800 block">99.9%</span>
+                  <span className="font-sans text-xs text-slate-600 uppercase font-medium">Uptime & Rigueur</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-charbon/5 border border-charbon/10">
-                  <span className="font-mono text-2xl font-bold text-charbon block">&lt; 100ms</span>
-                  <span className="font-sans text-xs text-charbon/60 uppercase">Latence Cible</span>
+                <div className="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70">
+                  <span className="font-mono text-2xl font-bold text-sky-800 block">&lt; 100ms</span>
+                  <span className="font-sans text-xs text-slate-600 uppercase font-medium">Latence Cible</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-charbon/5 border border-charbon/10 col-span-2 sm:col-span-1">
-                  <span className="font-mono text-2xl font-bold text-charbon block">60 FPS</span>
-                  <span className="font-sans text-xs text-charbon/60 uppercase">Fluidité UI/UX</span>
+                <div className="p-4 rounded-2xl bg-sky-50/80 border border-sky-200/70 col-span-2 sm:col-span-1">
+                  <span className="font-mono text-2xl font-bold text-sky-800 block">60 FPS</span>
+                  <span className="font-sans text-xs text-slate-600 uppercase font-medium">Fluidité UI/UX</span>
                 </div>
               </div>
             </div>
@@ -552,13 +553,13 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
         className="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10"
       >
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="font-mono text-xs uppercase tracking-widest text-or font-bold">
+          <span className="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
             02. CARRIÈRE & IMPACT
           </span>
-          <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+          <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
             Expériences & Réalisations
           </h2>
-          <p className="mt-4 font-sans text-creme-muted text-sm md:text-base">
+          <p className="mt-4 font-sans text-slate-600 text-sm md:text-base">
             Un parcours jalonné de défis techniques majeurs, de leadership d'équipe et d'architectures livrées en production.
           </p>
         </div>
@@ -567,7 +568,7 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
         <div className="relative">
           
           {/* Center Vertical Line */}
-          <div className="absolute top-4 bottom-4 left-4 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-or via-or/40 to-ardoise-border" />
+          <div className="absolute top-4 bottom-4 left-4 md:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-sky-400 via-sky-300 to-sky-200" />
 
           {/* Experience items */}
           <div className="flex flex-col gap-12 md:gap-16">
@@ -582,8 +583,8 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                 >
                   {/* Timeline Pulse Dot */}
                   <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20 flex items-center justify-center">
-                    <div className="w-5 h-5 rounded-full bg-charbon border-2 border-or shadow-lg shadow-or/50 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-or animate-pulse" />
+                    <div className="w-5 h-5 rounded-full bg-white border-2 border-sky-500 shadow-md shadow-sky-500/40 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-sky-600 animate-pulse" />
                     </div>
                   </div>
 
@@ -592,39 +593,39 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
 
                   {/* Experience Card Content */}
                   <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-8">
-                    <div className="bg-ardoise/90 backdrop-blur-md p-8 rounded-[2rem] border border-ardoise-border shadow-prestige hover:border-or/40 hover:shadow-prestige-hover card-prestige">
+                    <div className="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] border border-sky-200/80 shadow-prestige hover:border-sky-400 hover:shadow-prestige-hover card-prestige">
                       
                       {/* Period Header */}
                       <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                        <span className="font-mono text-xs text-or font-semibold px-3 py-1 rounded-full bg-charbon border border-or/20">
+                        <span className="font-mono text-xs text-sky-700 font-bold px-3 py-1 rounded-full bg-sky-50 border border-sky-200">
                           {exp.period}
                         </span>
-                        <span className="font-mono text-xs text-creme-muted/70">
+                        <span className="font-mono text-xs text-slate-500 font-medium">
                           {exp.location}
                         </span>
                       </div>
 
                       {/* Job Role */}
-                      <h3 className="font-sans font-bold text-2xl text-creme tracking-tight">
+                      <h3 className="font-sans font-bold text-2xl text-slate-900 tracking-tight">
                         {exp.role}
                       </h3>
 
                       {/* Company Name */}
-                      <p className="font-sans text-base text-or font-medium mt-1">
+                      <p className="font-sans text-base text-sky-600 font-semibold mt-1">
                         {exp.company}
                       </p>
 
                       {/* Description */}
-                      <p className="font-sans text-sm text-creme-muted/90 leading-relaxed mt-4">
+                      <p className="font-sans text-sm text-slate-600 leading-relaxed mt-4">
                         {exp.description}
                       </p>
 
                       {/* Technology Badges */}
-                      <div className="mt-6 flex flex-wrap gap-2 pt-4 border-t border-ardoise-border/60">
+                      <div className="mt-6 flex flex-wrap gap-2 pt-4 border-t border-sky-100">
                         {exp.tags.map((tag, i) => (
                           <span 
                             key={i} 
-                            className="font-mono text-[11px] text-creme-muted bg-charbon/70 px-2.5 py-1 rounded-md border border-ardoise-border hover:text-or transition-colors"
+                            className="font-mono text-[11px] text-sky-800 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200 hover:bg-sky-100 transition-colors"
                           >
                             #{tag}
                           </span>
@@ -648,18 +649,18 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
       <section 
         id="skills" 
         ref={skillsSectionRef}
-        className="relative py-28 md:py-36 px-6 bg-charbon-light rounded-[3rem] md:rounded-[4rem] border-y border-ardoise-border max-w-7xl mx-auto z-10 my-8 shadow-2xl"
+        className="relative py-28 md:py-36 px-6 bg-gradient-to-b from-sky-100/60 to-sky-50/80 rounded-[3rem] md:rounded-[4rem] border-y border-sky-200/80 max-w-7xl mx-auto z-10 my-8 shadow-lg"
       >
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="font-mono text-xs uppercase tracking-widest text-or font-bold">
+            <span className="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
               03. STACK TECHNIQUE & MAÎTRISE
             </span>
-            <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+            <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
               Tableau de Bord des Compétences
             </h2>
-            <p className="mt-4 font-sans text-creme-muted text-sm md:text-base">
+            <p className="mt-4 font-sans text-slate-600 text-sm md:text-base">
               Mesures d'expertise approfondies, des architectures distribuées aux interfaces haute-fidélité.
             </p>
           </div>
@@ -672,12 +673,12 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                 <div 
                   key={index}
                   data-percent={skill.level}
-                  className="skill-item bg-ardoise/80 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/40 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group"
+                  className="skill-item bg-white p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-400 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group"
                 >
                   <div>
                     {/* Header with Circular SVG Gauge & Icon */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-charbon border border-or/30 flex items-center justify-center text-or group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform shadow-sm">
                         <IconComponent className="w-6 h-6" />
                       </div>
 
@@ -688,41 +689,41 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                             cx="40"
                             cy="40"
                             r="34"
-                            className="stroke-charbon fill-none"
+                            className="stroke-sky-100 fill-none"
                             strokeWidth="6"
                           />
                           <circle
                             cx="40"
                             cy="40"
                             r="34"
-                            className="skill-circle-progress stroke-or fill-none transition-all"
+                            className="skill-circle-progress stroke-sky-600 fill-none transition-all"
                             strokeWidth="6"
                             strokeDasharray={2 * Math.PI * 34}
                             strokeDashoffset={2 * Math.PI * 34}
                             strokeLinecap="round"
                           />
                         </svg>
-                        <span className="skill-counter-text absolute font-mono font-bold text-sm text-creme">
+                        <span className="skill-counter-text absolute font-mono font-bold text-sm text-slate-900">
                           0%
                         </span>
                       </div>
                     </div>
 
                     {/* Skill Title */}
-                    <h3 className="font-sans font-bold text-xl text-creme group-hover:text-or transition-colors">
+                    <h3 className="font-sans font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">
                       {skill.name}
                     </h3>
 
                     {/* Skill Description */}
-                    <p className="font-sans text-xs text-creme-muted leading-relaxed mt-3">
+                    <p className="font-sans text-xs text-slate-600 leading-relaxed mt-3">
                       {skill.description}
                     </p>
                   </div>
 
                   {/* Subtags */}
-                  <div className="mt-6 pt-4 border-t border-ardoise-border/60 flex flex-wrap gap-1.5">
+                  <div className="mt-6 pt-4 border-t border-sky-100 flex flex-wrap gap-1.5">
                     {skill.subtags.map((sub, i) => (
-                      <span key={i} className="font-mono text-[10px] text-creme-muted/80 bg-charbon px-2 py-0.5 rounded border border-ardoise-border">
+                      <span key={i} className="font-mono text-[10px] text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-medium">
                         {sub}
                       </span>
                     ))}
@@ -745,13 +746,13 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
         className="relative py-28 md:py-36 px-6 max-w-5xl mx-auto z-10"
       >
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-mono text-xs uppercase tracking-widest text-or font-bold">
+          <span className="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
             04. DIPLÔMES & CERTIFICATIONS
           </span>
-          <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold">
+          <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold">
             Les Fondations Académiques
           </h2>
-          <p className="mt-4 font-sans text-creme-muted text-sm md:text-base">
+          <p className="mt-4 font-sans text-slate-600 text-sm md:text-base">
             Une base théorique rigoureuse couplée à un apprentissage continu de pointe.
           </p>
         </div>
@@ -761,30 +762,30 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
           {EDUCATION.map((edu, index) => (
             <div 
               key={index}
-              className="edu-card bg-ardoise/70 p-8 rounded-[2rem] border border-ardoise-border hover:border-or/30 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className="edu-card bg-white/95 p-8 rounded-[2rem] border border-sky-200/80 hover:border-sky-300 shadow-prestige transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-charbon border border-or/30 flex items-center justify-center text-or shrink-0 mt-1">
+                <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0 mt-1 shadow-sm">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="font-mono text-xs text-or font-semibold block mb-1">
+                  <span className="font-mono text-xs text-sky-700 font-bold block mb-1">
                     PROMOTION {edu.year}
                   </span>
-                  <h3 className="font-sans font-bold text-xl text-creme">
+                  <h3 className="font-sans font-bold text-xl text-slate-900">
                     {edu.degree}
                   </h3>
-                  <p className="font-sans text-sm text-creme-muted mt-1">
+                  <p className="font-sans text-sm text-slate-600 mt-1 font-medium">
                     {edu.school}
                   </p>
-                  <p className="font-sans text-xs text-creme-muted/70 mt-2">
+                  <p className="font-sans text-xs text-slate-500 mt-2">
                     {edu.details}
                   </p>
                 </div>
               </div>
 
               <div className="md:text-right shrink-0">
-                <span className="inline-block font-mono text-xs text-or bg-charbon px-3.5 py-1.5 rounded-full border border-or/20">
+                <span className="inline-block font-mono text-xs text-sky-800 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 font-semibold">
                   {edu.mention}
                 </span>
               </div>
@@ -801,22 +802,22 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
         ref={contactSectionRef}
         className="relative py-28 md:py-36 px-6 max-w-6xl mx-auto z-10"
       >
-        <div className="bg-gradient-to-b from-ardoise via-charbon-surface to-charbon p-8 md:p-16 rounded-[3rem] border border-or/30 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-br from-white via-sky-50 to-white p-8 md:p-16 rounded-[3rem] border border-sky-200/90 shadow-2xl relative overflow-hidden">
           
-          {/* Ambient Gold glow inside box */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-or/15 rounded-full blur-[100px] pointer-events-none" />
+          {/* Ambient sky glow inside box */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-sky-300/30 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             
             {/* Left Contact Info */}
             <div className="lg:col-span-6 contact-reveal">
-              <span className="font-mono text-xs uppercase tracking-widest text-or font-bold">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-700 font-bold">
                 05. CONTACT & DISPONIBILITÉ
               </span>
-              <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-creme font-bold leading-tight">
+              <h2 className="mt-3 font-serif italic text-4xl sm:text-5xl text-slate-900 font-bold leading-tight">
                 Travaillons ensemble sur votre prochain projet.
               </h2>
-              <p className="mt-4 font-sans text-creme-muted text-sm md:text-base leading-relaxed">
+              <p className="mt-4 font-sans text-slate-600 text-sm md:text-base leading-relaxed">
                 Vous recherchez une expertise de premier ordre pour concevoir, structurer ou accélérer une plateforme web d'envergure ? Discutons-en dès aujourd'hui.
               </p>
 
@@ -824,22 +825,22 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
               <div className="mt-8 flex flex-col gap-4">
                 <a 
                   href={`mailto:${PROFILE.email}`}
-                  className="hover-lift flex items-center gap-3 text-creme hover:text-or group"
+                  className="hover-lift flex items-center gap-3 text-slate-800 hover:text-sky-600 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-charbon border border-ardoise-border flex items-center justify-center text-or group-hover:border-or transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:border-sky-400 group-hover:bg-sky-100 transition-colors shadow-sm">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="font-mono text-sm">{PROFILE.email}</span>
+                  <span className="font-mono text-sm font-semibold">{PROFILE.email}</span>
                 </a>
 
                 <a 
                   href={`tel:${PROFILE.phone}`}
-                  className="hover-lift flex items-center gap-3 text-creme hover:text-or group"
+                  className="hover-lift flex items-center gap-3 text-slate-800 hover:text-sky-600 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-charbon border border-ardoise-border flex items-center justify-center text-or group-hover:border-or transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:border-sky-400 group-hover:bg-sky-100 transition-colors shadow-sm">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span className="font-mono text-sm">{PROFILE.phone}</span>
+                  <span className="font-mono text-sm font-semibold">{PROFILE.phone}</span>
                 </a>
 
                 <div className="flex items-center gap-4 mt-2">
@@ -847,18 +848,18 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                     href={PROFILE.linkedin} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="btn-magnetic flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border text-xs font-mono text-creme hover:text-or hover:border-or transition-colors"
+                    className="btn-magnetic flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200 text-xs font-mono text-slate-700 hover:text-sky-600 hover:border-sky-400 shadow-sm transition-colors"
                   >
-                    <Linkedin className="w-3.5 h-3.5" />
+                    <Linkedin className="w-3.5 h-3.5 text-sky-600" />
                     <span>LinkedIn</span>
                   </a>
                   <a 
                     href={PROFILE.github} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="btn-magnetic flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border text-xs font-mono text-creme hover:text-or hover:border-or transition-colors"
+                    className="btn-magnetic flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-sky-200 text-xs font-mono text-slate-700 hover:text-sky-600 hover:border-sky-400 shadow-sm transition-colors"
                   >
-                    <Github className="w-3.5 h-3.5" />
+                    <Github className="w-3.5 h-3.5 text-sky-600" />
                     <span>GitHub</span>
                   </a>
                 </div>
@@ -867,24 +868,24 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
 
             {/* Right Contact Form */}
             <div className="lg:col-span-6 contact-reveal">
-              <div className="bg-charbon/80 p-8 rounded-[2rem] border border-ardoise-border shadow-xl">
+              <div className="bg-white/90 p-8 rounded-[2rem] border border-sky-200 shadow-xl backdrop-blur-md">
                 
                 {formSent ? (
                   <div className="py-12 flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-or/20 border border-or flex items-center justify-center text-or mb-4 animate-bounce">
+                    <div className="w-16 h-16 rounded-full bg-sky-100 border border-sky-300 flex items-center justify-center text-sky-600 mb-4 animate-bounce">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h3 className="font-serif italic text-2xl text-creme font-bold">
+                    <h3 className="font-serif italic text-2xl text-slate-900 font-bold">
                       Message envoyé avec succès !
                     </h3>
-                    <p className="font-sans text-xs text-creme-muted mt-2 max-w-sm">
+                    <p className="font-sans text-xs text-slate-600 mt-2 max-w-sm">
                       Merci pour votre prise de contact. Jules vous répondra dans les plus brefs délais.
                     </p>
                   </div>
                 ) : (
                   <form onSubmit={handleSendMessage} className="flex flex-col gap-4">
                     <div>
-                      <label className="block font-mono text-xs text-creme-muted uppercase mb-1">
+                      <label className="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
                         Nom complet / Entreprise
                       </label>
                       <input 
@@ -893,12 +894,12 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                         placeholder="Ex: Alexandre de TechCorp"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none transition-colors"
+                        className="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-mono text-xs text-creme-muted uppercase mb-1">
+                      <label className="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
                         Adresse Email
                       </label>
                       <input 
@@ -907,12 +908,12 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                         placeholder="votre.email@domaine.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none transition-colors"
+                        className="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-mono text-xs text-creme-muted uppercase mb-1">
+                      <label className="block font-mono text-xs text-slate-600 uppercase font-semibold mb-1">
                         Votre Message / Projet
                       </label>
                       <textarea 
@@ -921,14 +922,14 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
                         placeholder="Décrivez votre vision ou vos besoins techniques..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-ardoise/90 border border-ardoise-border focus:border-or rounded-xl px-4 py-3 text-sm text-creme placeholder-creme-muted/40 focus:outline-none resize-none transition-colors"
+                        className="w-full bg-sky-50/50 border border-sky-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none resize-none transition-colors"
                       />
                     </div>
 
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="btn-magnetic mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-or via-or-light to-or text-charbon font-sans font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-or/20 hover:shadow-or/40 cursor-pointer disabled:opacity-50"
+                      className="btn-magnetic mt-2 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white font-sans font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 cursor-pointer disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <span>Envoi en cours...</span>
@@ -951,24 +952,24 @@ ${EDUCATION.map(edu => `• ${edu.year} : ${edu.degree} - ${edu.school} (${edu.m
       </section>
 
       {/* =========================================================
-          H. PIED DE PAGE — Minimaliste & Sombre
+          H. PIED DE PAGE — Sombre Profond & Élégant
       ========================================================= */}
-      <footer className="relative bg-charbon-deep text-creme-muted py-14 px-6 rounded-t-[4rem] border-t border-ardoise-border z-10">
+      <footer className="relative bg-[#0B1528] text-sky-200 py-14 px-6 rounded-t-[4rem] border-t border-sky-900/50 z-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           
           <div>
-            <p className="font-sans font-bold text-creme text-sm">
+            <p className="font-sans font-bold text-white text-sm">
               {PROFILE.name} — {PROFILE.title}
             </p>
-            <p className="font-mono text-xs text-creme-muted/70 mt-1">
+            <p className="font-mono text-xs text-sky-300/70 mt-1">
               Fait avec le vibe coding • Tous droits réservés © 2026
             </p>
           </div>
 
           {/* Live Status indicator */}
-          <div className="flex items-center gap-2 bg-charbon px-4 py-2 rounded-full border border-ardoise-border">
+          <div className="flex items-center gap-2 bg-sky-950/80 px-4 py-2 rounded-full border border-sky-800/60">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-mono text-xs text-emerald-400">
+            <span className="font-mono text-xs text-emerald-400 font-semibold">
               SYSTÈMES OPÉRATIONNELS • EN LIGNE
             </span>
           </div>
